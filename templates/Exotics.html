@@ -1,0 +1,107 @@
+{% extends 'bootstrap/base.html' %}
+{% block styles %}
+{{ super() }}
+<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Handlee&family=Merriweather:ital@1&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Foxy Family Rescue{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-inverse" style="background-color: #073b4cff; color: black;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Foxy Family Rescue</a>
+        </div>
+        <ul class="nav navbar-nav" style="background-color: #073b4cff;">
+            <li class="dropdown"><a href="http://127.0.0.1:5000/">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Animals
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://127.0.0.1:5000/Dogs">Adoptable Dogs</a></li>
+                    <li><a href="http://127.0.0.1:5000/Cats">Adoptable Cats</a></li>
+                    <li><a href="http://127.0.0.1:5000/Exotics">Adoptable Exotics</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Donate
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://account.venmo.com/u/Foxy-Family-Rescue">Venmo</a></li>
+                    <li><a href="https://www.paypal.me/foxyfamilycreations">Paypal</a></li>
+                    <li><a href="https://cash.app/$Foxyfamily">Cashapp</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Forms
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVbOvTx8H9RSPgkw_OZeyFG7x3ZfKodCvZgjjoIEqRK84sXg/viewform">Surrender
+                            Form</a></li>
+                    <li>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSciGBVlUhMCmMDCdGgQ6zqnbNvYuL5-nVJjXVM0KQK9ikJv-g/viewform">Adoption
+                            Contract</a></li>
+                    <li>
+                        <a href="https://www.petfinder.com/search/pets-for-adoption/?shelter_id%5B0%5D=TN998&sort%5B0%5D=recently_added">Petfinder
+                            Adoptable Animals</a></li>
+                    <li><a href="https://www.amazon.com/hz/wishlist/ls/2E42Y1P88W5VD?ref_=wl_share">Amazon Wishlist</a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfll_sppgDfj7UngmlMGcJHCES9LLD6rN9aBzuZPpziP0bYIg/viewform">Cat
+                            Application</a></li>
+                    <li><a href="https://docs.google.com/forms/d/1lUGf-qd2V00UYrClG8nOqg8OeDKuugX-Cesc7Hqw_oc/edit">Dog
+                        Application</a></li>
+                    <li>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenAgkw1q1SSkAbIO9m7tKtHziWfG-hyiltyX3OOEGnYZ0r_g/viewform">Small
+                            Animal Application</a></li>
+                    <li><a href="https://docs.google.com/forms/d/1E3TXjTi8BYtpYY7KU2RZHxxfYF9sVWavu40enKOzUVc/edit">Foster
+                        Application</a></li>
+                    <li><a href="https://drive.google.com/file/d/1zSoBayVtlM1lHIDS87FgTMkHstJMPc4D/view?usp=sharing">Foster
+                        Home Contract</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<h1 style="text-align: center;">Exotics</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        {% for pet in pets %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4" style="padding-bottom: 20px;">
+            <div class="d-flex justify-content-center">
+                <div class="card h-100 pb-40">
+                    <div class="card-img-top text-center">
+                        <img alt="{{ pet.name }}" onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/placeholder.png') }}';"
+                             src="{{ pet.image_url }}"
+                             style="object-fit: cover; width: 100%; height: 370px;">
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-between text-center">
+                        <h5 class="card-title" style="font-family: 'Handlee', cursive; font-size: 20px;">{{ pet.name
+                            }}</h5>
+                        <p class="card-text card-description" style="font-family: 'Handlee', cursive; font-size: 20px;">{{
+                            pet.description }}</p>
+                        <a class="btn btn-primary mt-auto" href="{{ pet.link }}" style="background-color: #073b4cff">More
+                            Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<footer style="text-align: center;">
+    <h3 style="font-family: 'Handlee', cursive; font-size: 20px;">Foxy Family Rescue &#169 {{ year }}</h3>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+
+/* SCSS HEX
+$bright-pink-crayola: #ef476fff;
+$sunglow: #ffd166ff;
+$emerald: #06d6a0ff;
+$blue-ncs: #118ab2ff;
+$midnight-green: #073b4cff
+*/
+
+body {
+background-color: white;
+color: black;
+}
+
+h1 {
+    font-family: 'Handlee', cursive;
+    font-size: 60px;
+}
+
+.jumbotron {
+    background-color: white;
+    font-family: 'Handlee', cursive;
+    font-size: 40px;
+}
+
+.2-para {
+    border-top: 0px;
+}
+
+.lead {
+    font-size: 500px;
+}
+
+.container-fluid {
+    font-size: 25px;
+}
+
+.nav-item {
+    padding-left: 25px;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.navbar {
+    font-family: 'Handlee', cursive;
+    font-color: black;
+    margin-bottom: 0px;
+}
+
+.dropdown-menu {
+    font-size: 25px;
+    background-color:  white;
+    opacity: 0.97;
+}
+
+.fa {
+    padding: 40px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+.col-centered {
+    float: none;
+    margin: 0 auto !important;
+    width: 95%;
+}
+
+.card {
+  background-color: #bed4ff; /* Set the background color */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid gray;
+}
+
+.card:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+.card-description {
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    height: 200px; /* Adjust this height based on your desired fixed height */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* Adjust this number based on the number of lines you want to show */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}

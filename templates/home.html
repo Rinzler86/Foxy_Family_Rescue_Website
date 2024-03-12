@@ -1,0 +1,335 @@
+{% extends 'bootstrap/base.html' %}
+{% block styles %}
+{{ super() }}
+<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Handlee&family=Merriweather:ital@1&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+    /* Media query for screens narrower than 768 pixels */
+    @media only screen and (max-width: 767px) {
+      /* Add your styles here */
+    }
+
+
+  /* Media query for screens narrower than 576px */
+  @media (max-width: 576px) {
+    .form-control {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        .desktop-padding {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .custom-column {
+            width: 20%;
+        }
+    }
+
+
+</style>
+
+{% endblock %}
+<body>
+{% block title %}Foxy Family Rescue{% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid" style="background-color: #073b4cff; color: black;">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Foxy Family Rescue</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav" style="background-color: #073b4cff;">
+                <li class="dropdown" style="background-color: #073b4cff;"><a href="#">Home</a></li>
+                <li class="dropdown" style="background-color: #073b4cff;">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color: #073b4cff;">Animals
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://127.0.0.1:5000/Dogs">Adoptable Dogs</a></li>
+                        <li><a href="http://127.0.0.1:5000/Cats">Adoptable Cats</a></li>
+                        <li><a href="http://127.0.0.1:5000/Exotics">Adoptable Exotics</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="background-color: #073b4cff;">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color: #073b4cff;">Donate
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://account.venmo.com/u/Foxy-Family-Rescue">Venmo</a></li>
+                        <li><a href="https://www.paypal.me/foxyfamilycreations">Paypal</a></li>
+                        <li><a href="https://cash.app/$Foxyfamily">Cashapp</a></li>
+                        <li><a href="https://www.paypal.com/donate/?hosted_button_id=L53GTVDN5DUEL">Cat Spay/Neuter</a></li>
+                        <li><a href="https://www.paypal.com/donate/?hosted_button_id=GJR7XKCJGEJPE">Dog Spay/Neuter</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="background-color: #073b4cff;">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color: #073b4cff;">Forms
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScVbOvTx8H9RSPgkw_OZeyFG7x3ZfKodCvZgjjoIEqRK84sXg/viewform">Surrender
+                                Form</a></li>
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSciGBVlUhMCmMDCdGgQ6zqnbNvYuL5-nVJjXVM0KQK9ikJv-g/viewform">Adoption
+                                Contract</a></li>
+                        <li><a href="https://www.petfinder.com/search/pets-for-adoption/?shelter_id%5B0%5"></a>
+                        <li>
+                        <li><a href="https://www.amazon.com/hz/wishlist/ls/2E42Y1P88W5VD?ref_=wl_share">Amazon
+                            Wishlist</a></li>
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfll_sppgDfj7UngmlMGcJHCES9LLD6rN9aBzuZPpziP0bYIg/viewform">Cat
+                                Application</a></li>
+                        <li><a href="https://docs.google.com/forms/d/1lUGf-qd2V00UYrClG8nOqg8OeDKuugX-Cesc7Hqw_oc/edit">Dog
+                            Application</a></li>
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSenAgkw1q1SSkAbIO9m7tKtHziWfG-hyiltyX3OOEGnYZ0r_g/viewform">Small
+                                Animal Application</a></li>
+                        <li><a href="https://docs.google.com/forms/d/1E3TXjTi8BYtpYY7KU2RZHxxfYF9sVWavu40enKOzUVc/edit">Foster
+                            Application</a></li>
+                        <li>
+                            <a href="https://drive.google.com/file/d/1zSoBayVtlM1lHIDS87FgTMkHstJMPc4D/view?usp=sharing">Foster
+                                Home Contract</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about_us">About Us</a></li>
+                <li><a href="#contact_us">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="text-center" style="width: 100%; max-width: 400px; margin: 0 auto;">
+  <img alt="Foxy_Logo" class="img-fluid" src="static/foxyfamilyrescuecolorlogo.png"
+       style="max-width: 100%; height: auto; display: block; margin: 20px auto;">
+</div>
+
+<div class="text-center" style="padding-right: 17px;">
+    <a class="fa fa-facebook-square fa-4x" href="https://www.facebook.com/FoxyFamilyRescue/"></a>
+    <a class="fa fa-instagram fa-4x" href="https://www.instagram.com/foxyfamilyrescue/"></a>
+    <a href="https://www.tiktok.com/@foxyfamilyrescue"><img alt="TikTok" height=75 src="static/tiktok.svg"
+                                                            style="margin-left: 24px; padding-bottom: 28px; "
+                                                            width=75></a>
+</div>
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <p class="lead" style="font-size: 25px;">Foxy Family Rescue is located in East Tennessee and is dedicated to
+            rescuing dogs, cats, small exotics & small farm animals in need.</p>
+        <hr class="my-4 2-para" style="height: 5px; background-color: #ffd166ff; border: 0px;">
+    </div>
+</div>
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <h2>Love in Action Subscription Service</h2>
+        <p class="lead" style="font-size: 20px;">Join our Love in Action Subscription Service and become a vital part of our compassionate community dedicated to making a difference in the lives of animals. Choose from our adorable tiers: Puppy Pals and Kitty Companions for small, regular donations, Guardian Angels for medium-sized donations, Rescue Rangers for large donations, and Lifesaver Leaders for the highest level of support. With Love in Action, you'll have the opportunity to provide ongoing care, rescue, and love to animals in need. Experience the joy of being a lifeline for these precious creatures and witness the tangible impact of your love in action. Together, we can create a world where every animal feels cherished and finds a forever home.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-2 col-4 text-center desktop-padding custom-column">
+            <h5 style="font-size: 18px; font-family: 'Handlee', cursive; font-weight: bold;">Puppy Pals Subscription - $5</h5>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-64F03193TT481740JMSDKI6Y" class="btn btn-primary btn-oval" style="background-color: #073b4cff; color: #ffd166ff; font-size: inherit; font-family: inherit;">Subscribe</a>
+        </div>
+        <div class="col-md-2 col-4 text-center desktop-padding custom-column">
+            <h5 style="font-size: 18px; font-family: 'Handlee', cursive; font-weight: bold;">Kitty Companions Subscription - $10</h5>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-40776081SF430791UMSDKOJY" class="btn btn-primary btn-oval" style="background-color: #073b4cff; color: #ffd166ff; font-size: inherit; font-family: inherit;">Subscribe</a>
+        </div>
+        <div class="col-md-2 col-4 text-center desktop-padding custom-column">
+            <h5 style="font-size: 18px; font-family: 'Handlee', cursive; font-weight: bold;">Guardian Angels Subscription - $25</h5>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7YP88885168796745MSDKQLY" class="btn btn-primary btn-oval" style="background-color: #073b4cff; color: #ffd166ff; font-size: inherit; font-family: inherit;">Subscribe</a>
+        </div>
+        <div class="col-md-2 col-4 text-center desktop-padding custom-column">
+            <h5 style="font-size: 18px; font-family: 'Handlee', cursive; font-weight: bold;">Rescue Rangers Subscription - $50</h5>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8LM63415BJ908271UMSDKQXI" class="btn btn-primary btn-oval" style="background-color: #073b4cff; color: #ffd166ff; font-size: inherit; font-family: inherit;">Subscribe</a>
+        </div>
+        <div class="col-md-2 col-4 text-center desktop-padding custom-column">
+            <h5 style="font-size: 18px; font-family: 'Handlee', cursive; font-weight: bold;">Lifesaver Leaders Subscription - $100</h5>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8L684677RN700114EMSDKRAY" class="btn btn-primary btn-oval" style="background-color: #073b4cff; color: #ffd166ff; font-size: inherit; font-family: inherit;">Subscribe</a>
+        </div>
+    </div>
+    <hr class="my-4 2-para" style="height: 5px; background-color: #ffd166ff; border: 0px;">
+</div>
+
+
+
+
+<h1 style="text-align: center; padding-top: 15px; color: black;">Featured Adoptables!</h1>
+<div style="text-align: center; background-image: url(static/foxyfamilywallpaper.png); background-repeat: repeat;">
+    <div class="container" style="width: auto; text-align: center;">
+        <div class="row col-centered" style="text-align: center;">
+            <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+                <div class="card border-warning w-100"
+                     style="margin: 20px; background-color: #06d6a0ff; padding-bottom: 20px; border: solid #073b4cff 10px;">
+                    <img alt="Dog_of_Week" class="card-img-top" src="{{ featured_dog.image_url }}"
+                         style="object-fit: cover; width: 100%; height: 370px;">
+                    <div class="card-body"
+                         style="text-align: center; padding-bottom: 20px; background-color: #06d6a0ff">
+                        <h3 class="card-title">{{ featured_dog.name }}</h3>
+                        <h4 class="card-text"></h4>
+                        <a class="btn-lg"
+                           href="{{ featured_dog.link }}"
+                           style="background-color: #ffd166ff; padding-top: 8px; ">More Info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+                <div class="card border-warning w-100"
+                     style="margin: 20px; background-color: #06d6a0ff; padding-bottom: 20px; border: solid #073b4cff 10px;">
+                    <img alt="Cat_of_Week" class="card-img-top" src="{{ featured_cat.image_url }}"
+                         style="object-fit: cover; width: 100%; height: 370px;">
+                    <div class="card-body"
+                         style="text-align: center; padding-bottom: 20px; background-color: #06d6a0ff">
+                        <h3 class="card-title">{{ featured_cat.name }}</h3>
+                        <h4 class="card-text"></h4>
+                        <a class="btn-lg"
+                           href="{{ featured_cat.link }}"
+                           style="background-color: #ffd166ff; margin-top: 8px;">More Info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+                <div class="card border-primary w-100"
+                     style=" margin: 20px; background-color: #06d6a0ff; padding-bottom: 20px; border: solid #073b4cff 10px;">
+                    <img alt="Dog_of_Week" class="card-img-top" src="{{ featured_exotic.image_url }}"
+                         style="object-fit: cover; width: 100%; height: 370px;">
+                    <div class="card-body"
+                         style="text-align: center; padding-bottom: 20px; background-color: #06d6a0ff">
+                        <h3 class="card-title">{{ featured_exotic.name }}</h3>
+                        <h4 class="card-text"></h4>
+                        <a class="btn-lg"
+                           href="{{ featured_exotic.link }}"
+                           style="background-color: #ffd166ff; margin-top: 8px;">More Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 id="about_us" style="text-align: center;">About Our Rescue</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <p style="font-family: 'Handlee', cursive; font-size: 20px; text-align: left; border: solid 5px #06d6a0ff">
+                Hi, I'm Taylor. I am the President of Foxy Family Rescue and Vice President of Exotic Pet Wonderland.
+                For more information on our exotic rescue, please click here.<br><br>
+
+                Foxy Family Rescue began in 2020 as a small scale rescue and has grown exponentially. We are currently
+                in the process of applying to be a licensed non profit organization so we can continue to grow and help
+                more animals in need.<br><br>
+
+                We have provided a permanent home for countless dogs, cats and small pocket pets. We receive dozens of
+                phone calls each week about abandoned or unwanted dogs and cats - and it's not slowing down any time
+                soon.<br><br>
+
+                Some stay here. Many are adopted out. You can see more information about adoptable pets by clicking on
+                our pages above.<br>
+
+                There is a small adoption fee associated with each animal. The amount will be listed on their individual
+                pages. This adoption fee is required and helps cover the costs of rescue so we can continue to save as
+                many dogs, cats and small pets in need as possible<br><br>
+
+                Your new furry family member will be up to date on all required vaccinations before going home with you.
+                In an effort to help the fight against overpopulation, all pets will also be spayed or neutered. There
+                are no exceptions.<br><br>
+
+                Our passion is our animals. We spend a large amount of time consulting with potential new pet parents to
+                help determine which of our adoptable animals will be the best fit for them and their families. If you
+                would like more information about our rescue or an available animal, please contact us.<br><br>
+
+                Thank you,<br>
+                Taylor Morgan<br>
+                Foxy Family Rescue
+            </p>
+        </div>
+        <div class="col-md-6 col-12">
+            <img height=400 src="static/taylorefoxyfamily.webp"
+                 style="object-fit: cover; width: 100%; border: solid 5px #06d6a0ff;"
+                 width=400>
+        </div>
+        <div class="col-md-6 col-12">
+            <img height=400 src="static/FB_IMG_1679623646691.jpg"
+                 style="object-fit: cover; width: 100%; border: solid 5px #06d6a0ff; margin-top:10px;"
+                 width=400>
+        </div>
+    </div>
+</div>
+<h1 id="contact_us" style="text-align: center">Contact Us!</h1>
+
+
+<div style="text-align: center;">
+
+
+  <div class="container">
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.first_name.label(class_="form-control-label") }}
+        {{ form.first_name(class_="form-control" + (' is-invalid' if form.first_name.errors else ''),
+        style="width:100%; max-width: 300px; margin:0 auto;" ) }}
+        {% for error in form.first_name.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.last_name.label(class_="form-control-label") }}
+        {{ form.last_name(class_="form-control" + (' is-invalid' if form.last_name.errors else ''),
+        style="width:100%; max-width: 300px; margin:0 auto;" ) }}
+        {% for error in form.last_name.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.phone_number.label(class_="form-control-label") }}
+        {{ form.phone_number(class_="form-control" + (' is-invalid' if form.phone_number.errors else ''),
+        style="width:100%; max-width: 300px; margin:0 auto;" ) }}
+        {% for error in form.phone_number.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.email.label(class_="form-control-label") }}
+        {{ form.email(class_="form-control" + (' is-invalid' if form.email.errors else ''),
+        style="width:100%; max-width: 300px; margin:0 auto;" ) }}
+        {% for error in form.email.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.message.label(class_="form-control-label") }}
+        {{ form.message(class_="form-control" + (' is-invalid' if form.message.errors else ''),
+        style="width:100%; max-width: 300px; margin:0 auto;" ) }}
+        {% for error in form.message.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+<footer style="text-align: center;">
+    <h3 style="font-family: 'Handlee', cursive; font-size: 20px;">Foxy Family Rescue &#169 {{ year }}</h3>
+</footer>
+{% endblock %}
+</body>

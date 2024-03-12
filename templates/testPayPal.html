@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PayPal Subscription</title>
+</head>
+<body>
+    <div id="paypal-button-container"></div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id={{clientID}}&vault=true"></script>
+
+
+    <div>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-64F03193TT481740JMSDKI6Y">Test</a>
+    </div>
+    <script>
+        paypal.Buttons({
+            createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                    'plan_id': '{{planID}}'
+                });
+            },
+            onApprove: function(data, actions) {
+                alert('You have successfully subscribed!');
+                // You can capture the subscription id here, it will be in data.subscriptionID
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
