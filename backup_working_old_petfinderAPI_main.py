@@ -22,13 +22,13 @@ auth_data = {
     'client_id': PETFINDER_API,
     'client_secret': SECRET
 }
-auth_response = requests.post(AUTH_URL, data=auth_data)
+auth_response = requests.post(AUTH_URL, data=auth_data, timeout=60)
 auth_data = auth_response.json()
 access_token = auth_data['access_token']
 
 # Make a GET request to the API using the access token
 headers = {'Authorization': f'Bearer {access_token}'}
-response = requests.get(f'{API_URL}/animals?organization=TN998', headers=headers)
+response = requests.get(f'{API_URL}/animals?organization=TN998', headers=headers, timeout=60)
 data = response.json()
 
 class Animal:
