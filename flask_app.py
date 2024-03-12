@@ -7,10 +7,10 @@ from wtforms.validators import DataRequired, Length
 import smtplib
 from email.message import EmailMessage
 import requests
-import random
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from ignore_file import PETFINDER_API, SECRET, ORG_ID, APP_SECRET, EMAIL, EMAIL_PASSWORD, PAYPAL_SECRET, PAYPAL_CLIENT
+import secrets
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -115,14 +115,14 @@ def get_featured_animals():
             exotics.append({'name': name, 'description': description, 'image_url': image_url, 'link': link,
                             'animal_type': animal['type']})
 
-    featured_dog = random.choice(dogs)
-    featured_cat = random.choice(cats)
+    featured_dog = secrets.SystemRandom().choice(dogs)
+    featured_cat = secrets.SystemRandom().choice(cats)
 
     # Check if the exotics list is empty, if so, choose either a dog or cat randomly
     if not exotics:
-        featured_exotic = random.choice(dogs + cats)
+        featured_exotic = secrets.SystemRandom().choice(dogs + cats)
     else:
-        featured_exotic = random.choice(exotics)
+        featured_exotic = secrets.SystemRandom().choice(exotics)
 
     return [featured_dog, featured_cat, featured_exotic]
 

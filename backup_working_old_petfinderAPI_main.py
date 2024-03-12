@@ -8,8 +8,8 @@ from wtforms.validators import DataRequired, Length
 import smtplib
 from email.message import EmailMessage
 import requests
-import random
 from ignore_file import PETFINDER_API, SECRET, APP_SECRET, EMAIL, EMAIL_PASSWORD
+import secrets
 
 
 ORG_ID = 'tn998'
@@ -84,7 +84,7 @@ class FeaturedPets:
         if self.featured_pet:
             return self.featured_pet
 
-        random_pet = random.choice(self.all_pets)
+        random_pet = secrets.SystemRandom().choice(self.all_pets)
         self.featured_pet = random_pet
         return self.featured_pet
 
