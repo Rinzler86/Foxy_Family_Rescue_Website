@@ -1,6 +1,6 @@
 from flask_bootstrap import Bootstrap
 import datetime
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from flask_sslify import SSLify
 from wtforms import StringField, TextAreaField
@@ -10,6 +10,7 @@ from email.message import EmailMessage
 import requests
 import random
 from ignore_file import PETFINDER_API, SECRET, APP_SECRET, EMAIL, EMAIL_PASSWORD
+from security import safe_requests
 
 
 ORG_ID = 'tn998'
@@ -28,7 +29,7 @@ access_token = auth_data['access_token']
 
 # Make a GET request to the API using the access token
 headers = {'Authorization': f'Bearer {access_token}'}
-response = requests.get(f'{API_URL}/animals?organization=TN998', headers=headers)
+response = safe_requests.get(f'{API_URL}/animals?organization=TN998', headers=headers)
 data = response.json()
 
 class Animal:

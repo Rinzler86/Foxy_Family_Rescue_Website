@@ -11,6 +11,7 @@ import random
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from ignore_file import PETFINDER_API, SECRET, ORG_ID, APP_SECRET, EMAIL, EMAIL_PASSWORD, PAYPAL_SECRET, PAYPAL_CLIENT
+from security import safe_requests
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -48,7 +49,7 @@ def get_animals():
     # Make a GET request to the API using the access token
     headers = {'Authorization': f'Bearer {access_token}'}
     params1 = {'organization': ORG_ID, 'limit': 40, 'page': 1}
-    response1 = requests.get(f'{API_URL}/animals', headers=headers, params=params1)
+    response1 = safe_requests.get(f'{API_URL}/animals', headers=headers, params=params1)
     data = response1.json()
 
     # Process data and return desired results
@@ -90,7 +91,7 @@ def get_featured_animals():
     # Make a GET request to the API using the access token
     headers = {'Authorization': f'Bearer {access_token}'}
     params1 = {'organization': ORG_ID, 'limit': 40, 'page': 1}
-    response1 = requests.get(f'{API_URL}/animals', headers=headers, params=params1)
+    response1 = safe_requests.get(f'{API_URL}/animals', headers=headers, params=params1)
     data = response1.json()
 
     # Process data and return desired results
