@@ -10,7 +10,7 @@ auth_response = requests.post('https://api.sandbox.paypal.com/v1/oauth2/token',
                               data={
                                   'grant_type': 'client_credentials'
                               },
-                              auth=(PAYPAL_CLIENT, PAYPAL_SECRET))  # your client id and secret key
+                              auth=(PAYPAL_CLIENT, PAYPAL_SECRET), timeout=60)  # your client id and secret key
 
 # Get the access token from the response
 access_token = auth_response.json()['access_token']
@@ -32,7 +32,7 @@ product_data = {
 }
 
 # Make a POST request to create a product
-response = requests.post('https://api.sandbox.paypal.com/v1/catalogs/products', headers=headers, json=product_data)
+response = requests.post('https://api.sandbox.paypal.com/v1/catalogs/products', headers=headers, json=product_data, timeout=60)
 
 product_id = response.json()['id']  # Get the product id from the response
 
@@ -67,6 +67,6 @@ plan_data = {
 }
 
 # Create the plan
-response = requests.post('https://api.sandbox.paypal.com/v1/billing/plans', headers=headers, json=plan_data)
+response = requests.post('https://api.sandbox.paypal.com/v1/billing/plans', headers=headers, json=plan_data, timeout=60)
 
 print(response.json())
