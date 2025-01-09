@@ -41,14 +41,14 @@ def get_animals():
         'client_id': PETFINDER_API,
         'client_secret': SECRET
     }
-    auth_response = requests.post(AUTH_URL, data=auth_data)
+    auth_response = requests.post(AUTH_URL, data=auth_data, timeout=60)
     auth_data = auth_response.json()
     access_token = auth_data['access_token']
 
     # Make a GET request to the API using the access token
     headers = {'Authorization': f'Bearer {access_token}'}
     params1 = {'organization': ORG_ID, 'limit': 40, 'page': 1}
-    response1 = requests.get(f'{API_URL}/animals', headers=headers, params=params1)
+    response1 = requests.get(f'{API_URL}/animals', headers=headers, params=params1, timeout=60)
     data = response1.json()
 
     # Process data and return desired results
@@ -83,14 +83,14 @@ def get_featured_animals():
         'client_id': PETFINDER_API,
         'client_secret': SECRET
     }
-    auth_response = requests.post(AUTH_URL, data=auth_data)
+    auth_response = requests.post(AUTH_URL, data=auth_data, timeout=60)
     auth_data = auth_response.json()
     access_token = auth_data['access_token']
 
     # Make a GET request to the API using the access token
     headers = {'Authorization': f'Bearer {access_token}'}
     params1 = {'organization': ORG_ID, 'limit': 40, 'page': 1}
-    response1 = requests.get(f'{API_URL}/animals', headers=headers, params=params1)
+    response1 = requests.get(f'{API_URL}/animals', headers=headers, params=params1, timeout=60)
     data = response1.json()
 
     # Process data and return desired results
@@ -185,7 +185,7 @@ def paypal_page():
                                   data={
                                       'grant_type': 'client_credentials'
                                   },
-                                  auth=(client_id, secret_key))
+                                  auth=(client_id, secret_key), timeout=60)
 
     # Get the access token from the response
     access_token = auth_response.json()['access_token']
@@ -206,7 +206,7 @@ def paypal_page():
         "image_url": "https://example.com/streaming.jpg",
         "home_url": "https://example.com/home"
     }
-    product_response = requests.post('https://api.sandbox.paypal.com/v1/catalogs/products', headers=headers, json=product_data)
+    product_response = requests.post('https://api.sandbox.paypal.com/v1/catalogs/products', headers=headers, json=product_data, timeout=60)
     product_id = product_response.json()['id']
 
     # Create plan
@@ -243,7 +243,7 @@ def paypal_page():
             "inclusive": False
         }
     }
-    plan_response = requests.post('https://api.sandbox.paypal.com/v1/billing/plans', headers=headers, json=plan_data)
+    plan_response = requests.post('https://api.sandbox.paypal.com/v1/billing/plans', headers=headers, json=plan_data, timeout=60)
     print(f"plan response: {plan_response.status_code}")
     plan_id = plan_response.json()['id']
     print(plan_response.json())
